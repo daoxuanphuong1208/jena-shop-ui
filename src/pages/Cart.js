@@ -10,17 +10,16 @@ import { Link } from 'react-router-dom';
 const cx = classNames.bind(styles);
 function Cart() {
     const { getTotalCartItem, setMenu, menu } = useContext(ShopContext);
-    console.log(menu);
     return (
         <div>
             {getTotalCartItem() === 0 ? (
                 <div className={cx('cart-empty')}>
                     <img className={cx('cart-empty-img')} src={cart_empty} alt="" />
-                    <div className={cx('cart-empty-btn-wrap')}>
-                        <Link to={menu === 'home' ? '/' : `/${menu}`}>
-                            <button onClick={() => setMenu(`${menu}`)}>Buy now</button>
-                        </Link>
-                    </div>
+                    <Link to={menu === 'home' ? '/' : `/${menu}`}>
+                        <button className={cx('cart-empty-btn')} onClick={() => setMenu(`${menu}`)}>
+                            Buy now
+                        </button>
+                    </Link>
                 </div>
             ) : (
                 <CartItem />
