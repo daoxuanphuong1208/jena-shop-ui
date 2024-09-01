@@ -9,6 +9,7 @@
     width: 82%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 10px auto;
 }
 
@@ -50,6 +51,12 @@
 
 .load-more button:hover {
     background: #fe2020;
+}
+
+@media (max-width: 1500px) {
+    .shop-category-products {
+        gap: 20px;
+    }
 }
 
 @media (max-width: 1280px) {
@@ -107,5 +114,10 @@
 @media (max-width: 500px) {
     .shop-category-products {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .sort-price {
+        font-size: 12px;
+        padding: 8px 14px;
     }
 }

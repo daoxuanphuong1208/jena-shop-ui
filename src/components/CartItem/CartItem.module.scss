@@ -9,6 +9,7 @@
 }
 
 .cart-item-format-main {
+    width: 90%;
     display: grid;
     grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
     align-items: center;
@@ -166,5 +167,29 @@
     .cart-item-promo-code-box input,
     .cart-item-promo-code-box button {
         height: 50px;
+    }
+}
+
+@media (max-width: 700px) {
+    .cart-item-format-main {
+        grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr;
+        gap: 18px;
+    }
+
+    .cart-item-format p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+@media (max-width: 476px) {
+    .cart-item-format-main {
+        grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+        gap: 10px;
+    }
+
+    .cart-item-format-main p:last-child {
+        display: none;
     }
 }
