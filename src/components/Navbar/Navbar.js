@@ -21,7 +21,7 @@ function Navbar() {
     };
 
     return (
-        <div className={cx('navbar')}>
+        <nav className={cx('navbar')}>
             <div className={cx('nav-logo')}>
                 <Link to="/">
                     <img onClick={() => setMenu('home')} src={logo} alt="" />
@@ -66,7 +66,7 @@ function Navbar() {
                 </Link>
                 <div className={cx('nav-cart-count')}>{getTotalCartItem()}</div>
             </div>
-        </div>
+        </nav>
     );
 }
 
