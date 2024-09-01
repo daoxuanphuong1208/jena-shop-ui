@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 
 function Footer() {
     return (
-        <div className={cx('footer')}>
+        <footer className={cx('footer')}>
             <div className={cx('footer-logo')}>
                 <img src={footer_logo} alt="" />
                 <p>JENA SHOP</p>
@@ -37,7 +37,7 @@ function Footer() {
                 <hr />
                 <p>Copyright @ 2023 - All Right Reserved</p>
             </div>
-        </div>
+        </footer>
     );
 }
 
