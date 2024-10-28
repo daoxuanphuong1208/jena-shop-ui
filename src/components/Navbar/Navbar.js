@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useRef } from 'react';
 
 import styles from './Navbar.module.scss';
@@ -14,6 +14,7 @@ const cx = classNames.bind(styles);
 function Navbar() {
     const { menu, setMenu, getTotalCartItem } = useContext(ShopContext);
     const menuRef = useRef();
+    const navigate = useNavigate();
 
     const dropdown_toggle = (e) => {
         menuRef.current.classList.toggle(styles['nav-menu-visible']);
@@ -23,47 +24,66 @@ function Navbar() {
     return (
         <nav className={cx('navbar')}>
             <div className={cx('nav-logo')}>
-                <Link to="/">
-                    <img onClick={() => setMenu('home')} src={logo} alt="" />
-                </Link>
-                <Link to="/">
-                    <p onClick={() => setMenu('home')}>JENA SHOP</p>
-                </Link>
+                <img
+                    onClick={() => {
+                        setMenu('home');
+                        navigate('/');
+                    }}
+                    src={logo}
+                    alt=""
+                />
+                <p
+                    onClick={() => {
+                        setMenu('home');
+                        navigate('/');
+                    }}
+                >
+                    JENA SHOP
+                </p>
             </div>
             <img src={nav_dropdown} alt="" className={cx('nav-dropdown')} onClick={dropdown_toggle} />
             <ul ref={menuRef} className={cx('nav-menu')}>
-                <Link to="/">
-                    <li onClick={() => setMenu('home')}>
-                        Home
-                        {menu === 'home' ? <hr /> : <></>}
-                    </li>
-                </Link>
-                <Link to="/mens">
-                    <li onClick={() => setMenu('mens')}>
-                        Men
-                        {menu === 'mens' ? <hr /> : <></>}
-                    </li>
-                </Link>
-                <Link to="/womens">
-                    <li onClick={() => setMenu('womens')}>
-                        Women
-                        {menu === 'womens' ? <hr /> : <></>}
-                    </li>
-                </Link>
-                <Link to="/kids">
-                    <li onClick={() => setMenu('kids')}>
-                        Kids
-                        {menu === 'kids' ? <hr /> : <></>}
-                    </li>
-                </Link>
+                <li
+                    onClick={() => {
+                        navigate('/');
+                        setMenu('home');
+                    }}
+                >
+                    Home
+                    {menu === 'home' ? <hr /> : <></>}
+                </li>
+                <li
+                    onClick={() => {
+                        setMenu('mens');
+                        navigate('/mens');
+                    }}
+                >
+                    Men
+                    {menu === 'mens' ? <hr /> : <></>}
+                </li>
+                <li
+                    onClick={() => {
+                        setMenu('womens');
+                        navigate('/womens');
+                    }}
+                >
+                    Women
+                    {menu === 'womens' ? <hr /> : <></>}
+                </li>
+                <li
+                    onClick={() => {
+                        setMenu('kids');
+                        navigate('/kids');
+                    }}
+                >
+                    Kids
+                    {menu === 'kids' ? <hr /> : <></>}
+                </li>
             </ul>
             <div className={cx('nav-login-cart')}>
-                <Link to="/login">
-                    <button>Login</button>
-                </Link>
-                <Link to="/cart">
-                    <img src={cart_icon} alt="" />
-                </Link>
+                <button onClick={() => navigate('/login')}>Login</button>
+                <img src={cart_icon} onClick={() => navigate('/cart')} alt="" />
+
                 <div className={cx('nav-cart-count')}>{getTotalCartItem()}</div>
             </div>
         </nav>

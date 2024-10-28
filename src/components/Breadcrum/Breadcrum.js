@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import styles from './Breadcrum.module.scss';
 import arrow_icon from '../../assets/breadcrum_arrow.png';
@@ -11,16 +11,27 @@ const cx = classNames.bind(styles);
 function Breadcrum(props) {
     const { setMenu } = useContext(ShopContext);
     const { product } = props;
+    const navigate = useNavigate();
 
     return (
         <div className={cx('breadcrum')}>
-            <Link onClick={() => setMenu('home')} to="/">
+            <div
+                onClick={() => {
+                    setMenu('home');
+                    navigate('/');
+                }}
+            >
                 HOME
-            </Link>
+            </div>
             <img src={arrow_icon} alt="" />{' '}
-            <Link onClick={() => setMenu(`${product.category}s`)} to={`/${product.category}s`}>
+            <div
+                onClick={() => {
+                    setMenu(`${product.category}s`);
+                    navigate(`/${product.category}ss`);
+                }}
+            >
                 {product.category}
-            </Link>
+            </div>
             <img src={arrow_icon} alt="" /> {product.name}
         </div>
     );

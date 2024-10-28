@@ -5,21 +5,27 @@ import CartItem from '../components/CartItem/CartItem';
 import { useContext } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import cart_empty from '../assets/cart_empty.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 function Cart() {
     const { getTotalCartItem, setMenu, menu } = useContext(ShopContext);
+    const navigate = useNavigate();
     return (
         <div>
             {getTotalCartItem() === 0 ? (
                 <div className={cx('cart-empty')}>
                     <img className={cx('cart-empty-img')} src={cart_empty} alt="" />
-                    <Link to={menu === 'home' ? '/' : `/${menu}`}>
-                        <button className={cx('cart-empty-btn')} onClick={() => setMenu(`${menu}`)}>
-                            Buy now
-                        </button>
-                    </Link>
+
+                    <button
+                        className={cx('cart-empty-btn')}
+                        onClick={() => {
+                            setMenu(`${menu}`);
+                            navigate(menu === 'home' ? '/' : `/${menu}`);
+                        }}
+                    >
+                        Buy now
+                    </button>
                 </div>
             ) : (
                 <CartItem />
