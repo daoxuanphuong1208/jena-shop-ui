@@ -12,25 +12,19 @@ function CartItem() {
 
     return (
         <div className={cx('cart-item')}>
-            <div className={cx('cart-item-format-main')}>
-                <p>Products</p>
-                <p>Title</p>
-                <p>Price</p>
-                <p>Quantity</p>
-                <p>Total</p>
-                <p>Remove</p>
-            </div>
-            <hr />
-            {all_product.map((item, index) => {
-                if (cartItems[item.id] > 0) {
-                    return (
-                        <div key={index}>
-                            <div className={cx('cart-item-format', 'cart-item-format-main')}>
-                                <img className={cx('cart-product-img')} src={item.image} alt="" />
-                                <p>{item.name}</p>
-                                <p>{item.new_price}</p>
+            <div className={cx('cart-item-wrap')}>
+                {all_product.map((item, index) => {
+                    if (cartItems[item.id] > 0) {
+                        return (
+                            <div className={cx('cart-item-main')}>
+                                <div style={{ display: 'flex', gap: '10px' }}>
+                                    <img className={cx('cart-product-img')} src={item.image} alt="" />
+                                    <div>
+                                        <p className={cx('cart-product-name')}>{item.name}</p>
+                                        <p style={{ fontWeight: 'bold' }}>{item.new_price}₫</p>
+                                    </div>
+                                </div>
                                 <button className={cx('cart-item-quantity')}>{cartItems[item.id]}</button>
-                                <p>{item.new_price * cartItems[item.id]}</p>
                                 <img
                                     className={cx('cart-item-remove-icon')}
                                     onClick={() => removeFromCart(item.id)}
@@ -38,14 +32,12 @@ function CartItem() {
                                     alt=""
                                 />
                             </div>
-                            <hr />
-                        </div>
-                    );
-                } else {
-                    return null;
-                }
-            })}
-
+                        );
+                    } else {
+                        return null;
+                    }
+                })}
+            </div>
             <div className={cx('cart-item-down')}>
                 <div className={cx('cart-item-totals')}>
                     <h1>Cart Total</h1>

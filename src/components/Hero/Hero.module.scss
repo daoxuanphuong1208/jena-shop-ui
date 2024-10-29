@@ -2,6 +2,7 @@
     height: 100vh;
     background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
     display: flex;
+    overflow: hidden;
 }
 
 .hero-left {
@@ -94,6 +95,7 @@
 
     .hero-right img {
         width: 500px;
+        height: auto;
     }
 }
 
@@ -123,6 +125,7 @@
 
     .hero-right img {
         width: 400px;
+        height: auto;
     }
 }
 
@@ -151,7 +154,7 @@
 
     .hero-right img {
         width: 300px;
-        height: 80%;
+        height: auto;
     }
 }
 
@@ -174,6 +177,7 @@
 
     .hero-hand-icon img {
         width: 55px;
+        height: auto;
     }
 
     .hero-latest-btn {

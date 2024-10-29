@@ -5,6 +5,7 @@
     gap: 10px;
     margin-top: 100px;
     margin-bottom: 100px;
+    overflow: hidden;
 }
 
 .new-collections h1 {
@@ -73,6 +74,7 @@
     }
 
     .collections {
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 5px;
     }
 }

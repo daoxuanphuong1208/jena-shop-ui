@@ -82,9 +82,10 @@ function Navbar() {
             </ul>
             <div className={cx('nav-login-cart')}>
                 <button onClick={() => navigate('/login')}>Login</button>
-                <img src={cart_icon} onClick={() => navigate('/cart')} alt="" />
-
-                <div className={cx('nav-cart-count')}>{getTotalCartItem()}</div>
+                <img style={{ cursor: 'pointer' }} src={cart_icon} onClick={() => navigate('/cart')} alt="" />
+                <div style={{ cursor: 'pointer' }} className={cx('nav-cart-count')}>
+                    {getTotalCartItem()}
+                </div>
             </div>
         </nav>
     );

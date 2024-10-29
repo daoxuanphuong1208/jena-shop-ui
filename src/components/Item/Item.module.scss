@@ -1,5 +1,6 @@
 .item {
     width: 350px;
+    cursor: pointer;
 }
 
 .item img {
@@ -71,25 +72,20 @@
 
 @media (max-width: 800px) {
     .item {
-        width: 120px;
-        font-size: 12px;
+        width: 160px;
     }
 
     .item img {
-        width: 120px;
-    }
-
-    .item-price-old {
-        font-size: 12px;
+        width: 160px;
     }
 }
 
 @media (max-width: 500px) {
     .item {
-        width: 160px;
+        width: 120px;
     }
 
     .item img {
-        width: 160px;
+        width: 120px;
     }
 }

@@ -72,12 +72,6 @@
 
     .shop-category-sort {
         padding: 5px 10px;
-        font-size: 12px;
-    }
-
-    .shop-category-index-sort p,
-    .shop-category-index-sort p span {
-        font-size: 13px;
     }
 
     .shop-category-products {
@@ -109,6 +103,19 @@
         background: #ff4141;
         border-radius: 35px;
     }
+
+    .shop-category-sort {
+        font-size: 12px;
+    }
+
+    .shop-category-index-sort p,
+    .shop-category-index-sort p span {
+        font-size: 13px;
+    }
+
+    .sort-price {
+        font-size: 13px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -119,5 +126,7 @@
     .sort-price {
         font-size: 12px;
         padding: 8px 14px;
+        margin-left: 0;
+        margin-top: 5px;
     }
 }
